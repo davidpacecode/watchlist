@@ -3,7 +3,14 @@ class EntriesController < ApplicationController
 
   # GET /entries or /entries.json
   def index
-    @entries = Entry.all
+    case params[:kind]
+    when "movie"
+      @entries = Entry.where(kind: :movie)
+    when "show"
+      @entries = Entry.where(kind: :show)
+    else
+      @entries = Entry.all
+    end
   end
 
   # GET /entries/1 or /entries/1.json

@@ -57,6 +57,14 @@
         <% end %>
       </header>
 
+      <nav slot="navigation">
+        <ul>
+          <li><%= link_to "Movies", entries_path(kind: :movie) %></li>
+          <li><%= link_to "Shows", entries_path(kind: :show) %></li>
+          <li><%= link_to "Both", entries_path %></li>
+        </ul>
+      </nav>
+
       <main>
         <wa-card>
           <%= yield %>
