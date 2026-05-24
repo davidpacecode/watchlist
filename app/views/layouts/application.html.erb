@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html class="wa-cloak">
+  <head>
+    <title><%= content_for(:title) || "Watchlist" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Watchlist">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <%# adding web awesome %>
+    <!-- Theme + color palette -->
+    <link
+      rel="stylesheet"
+      href="https://ka-p.webawesome.com/kit/aeed238eab0540fb/webawesome@3.7.0/styles/themes/default.css"
+>
+
+    <!-- Native styles/CSS reset -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/aeed238eab0540fb/webawesome@3.7.0/styles/native.css">
+
+    <!-- CSS utilities -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/aeed238eab0540fb/webawesome@3.7.0/styles/utilities.css">
+
+    <!-- Web Awesome autoloader -->
+    <script
+      type="module"
+      src="https://ka-p.webawesome.com/kit/aeed238eab0540fb/webawesome@3.7.0/webawesome.loader.js"
+    ></script>
+
+    <%# adding font awesome %>
+    <script src="https://kit.fontawesome.com/dc8a27351f.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <wa-page>
+      <header slot="header">
+        <%= link_to root_path do %>
+          <wa-cluster class="wa-align-items-center wa-gap-m">
+            <i class="fa-duotone fa-thin fa-tv-retro fa-2xl"></i>
+            <span class="wa-heading-2xl wa-link-plain">Watchlist</span>
+          </wa-cluster>
+        <% end %>
+      </header>
+
+      <main>
+        <wa-card>
+          <%= yield %>
+        </wa-card>
+      </main>
+
+
+      <footer slot="footer">
+        <wa-cluster>
+          <span class="wa-heading-l">Made in Austin, Texas</span>
+          <i class="fa-sharp fa-solid fa-taco fa-xl" style="color: rgb(255, 212, 59);"></i>
+        </wa-cluster>
+      </footer>
+    </wa-page>
+
+  </body>
+</html>

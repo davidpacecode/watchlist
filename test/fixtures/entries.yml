@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  kind: 1
+  watched: false
+
+two:
+  title: MyString
+  kind: 1
+  watched: false
