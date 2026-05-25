@@ -18,10 +18,10 @@
         <wa-cluster>
           <%= link_to entry do %><wa-tag size="s" pill>View</wa-tag><% end -%>
           <%= link_to edit_entry_path(entry) do %><wa-tag size="s" pill>Edit</wa-tag><% end -%>
-          <%= button_to "Delete", @entry, method: :delete, class: "wa-button" %>
-<!--          <wa-button size="s" pill>Small</wa-button>
-          <wa-tag size="s" pill>Delete</wa-tag>
-          -->
+          <%= link_to entry_path(entry),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+            <wa-tag size="s" pill>Delete</wa-tag>
+          <% end -%>
         </wa-cluster>
       </div>
     <% end %>
