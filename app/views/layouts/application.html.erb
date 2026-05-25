@@ -58,10 +58,10 @@
       </header>
 
       <nav slot="navigation">
-        <ul>
-          <li><%= link_to "Movies", entries_path(kind: :movie) %></li>
-          <li><%= link_to "Shows", entries_path(kind: :show) %></li>
-          <li><%= link_to "Both", entries_path %></li>
+        <ul class="wa-list-plain">
+          <li><%= link_to "Movies", entries_path(kind: :movie), class: "wa-link-plain" %></li>
+          <li><%= link_to "Shows", entries_path(kind: :show), class: "wa-link-plain" %></li>
+          <li><%= link_to "Both", entries_path, class: "wa-link-plain" %></li>
         </ul>
       </nav>
 

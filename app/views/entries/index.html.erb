@@ -2,15 +2,30 @@
 
 <% content_for :title, "Entries" %>
 
-<h1>Entries</h1>
+<h2>Stuff to Watch</h2>
 
 <div id="entries">
-  <% @entries.each do |entry| %>
-    <%= render entry %>
-    <p>
-      <%= link_to "Show this entry", entry %>
-    </p>
-  <% end %>
+  <div class="wa-grid" style="grid-template-columns: repeat(4, 1fr);">
+    <div><span class="wa-font-weight-bold">Title</span></div>
+    <div><span class="wa-font-weight-bold">Type</span></div>
+    <div><span class="wa-font-weight-bold">Watched?</span></div>
+    <div></div>
+    <% @entries.each do |entry| %>
+      <div><span><%= entry.title %></span></div>
+      <div><span><%= entry.kind.humanize %></span></div>
+      <div><span><%= entry.watched? ? "Yup" : "Not yet" %></span></div>
+      <div>
+        <wa-cluster>
+          <%= link_to entry do %><wa-tag size="s" pill>View</wa-tag><% end -%>
+          <%= link_to edit_entry_path(entry) do %><wa-tag size="s" pill>Edit</wa-tag><% end -%>
+          <%= button_to "Delete", @entry, method: :delete, class: "wa-button" %>
+<!--          <wa-button size="s" pill>Small</wa-button>
+          <wa-tag size="s" pill>Delete</wa-tag>
+          -->
+        </wa-cluster>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <%= link_to "New entry", new_entry_path %>
