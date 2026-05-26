@@ -5,15 +5,17 @@
 <h2>Stuff to Watch</h2>
 
 <div id="entries">
-  <div class="wa-grid" style="grid-template-columns: repeat(4, 1fr);">
+  <div class="wa-grid" style="grid-template-columns: repeat(5, 1fr);">
     <div><span class="wa-font-weight-bold">Title</span></div>
     <div><span class="wa-font-weight-bold">Type</span></div>
     <div><span class="wa-font-weight-bold">Watched?</span></div>
+    <div><span class="wa-font-weight-bold">Date Added</span></div>
     <div></div>
     <% @entries.each do |entry| %>
       <div><span><%= entry.title %></span></div>
       <div><span><%= entry.kind.humanize %></span></div>
       <div><span><%= entry.watched? ? "Yup" : "Not yet" %></span></div>
+      <div><span><%= "#{time_ago_in_words(entry.created_at)} ago" %></span></div>
       <div>
         <wa-cluster>
           <%= link_to entry do %><wa-tag size="s" pill>View</wa-tag><% end -%>
