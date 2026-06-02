@@ -12,7 +12,14 @@
     <div><span class="wa-font-weight-bold">Date Added</span></div>
     <div></div>
     <% @entries.each do |entry| %>
-      <div><span><%= entry.title %></span></div>
+      <div>
+        <%= turbo_frame_tag dom_id(entry, :title) do %>
+          <div class="wa-cluster">
+            <span><%= entry.title %></span>
+            <span class="wa-body-2xs"><%= link_to "Edit title", edit_title_entry_path(entry) %></span>
+          </div>
+        <% end %>
+      </div>
       <div><span><%= entry.kind.humanize %></span></div>
       <div><span><%= entry.watched? ? "Yup" : "Not yet" %></span></div>
       <div><span><%= "#{time_ago_in_words(entry.created_at)} ago" %></span></div>
