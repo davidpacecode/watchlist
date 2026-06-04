@@ -13,13 +13,13 @@
     <% end %>
 
     <div>
-      <wa-input name="entry[title]" value="<%= @entry.title %>" size="xs"></wa-input>
+      <wa-input name="entry[title]" value="<%= @entry.title %>" size="s"></wa-input>
     </div>
 
     <div>
-      <div class="wa-cluster">
-        <wa-button appearance="filled" type="submit" variant="neutral" size="xs">Submit</wa-button>
-        <wa-button appearance="filled" type="reset" variant="neutral" size="xs">Nevermind</wa-button>
+      <div class="wa-cluster wa-gap-3xs">
+        <wa-button appearance="outlined" type="submit" variant="neutral" size="xs">Save</wa-button>
+        <wa-button appearance="outlined" href="<%= entries_path %>" variant="neutral" size="xs">Nevermind</wa-button>
       </div>
       <%# form.submit %>
     </div>

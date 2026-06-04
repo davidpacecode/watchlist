@@ -15,8 +15,8 @@
       <div>
         <%= turbo_frame_tag dom_id(entry, :title) do %>
           <div class="wa-cluster">
-            <span><%= entry.title %></span>
-            <span class="wa-body-2xs"><%= link_to "Edit title", edit_title_entry_path(entry) %></span>
+            <!-- <span><%= entry.title %></span> -->
+            <span class="wa-body-s"><%= link_to entry.title, edit_title_entry_path(entry) %></span>
           </div>
         <% end %>
       </div>
