@@ -13,12 +13,15 @@
     <% end %>
 
     <div>
-      <%= form.label :title, style: "display: block" %>
-      <%= form.text_field :title %>
+      <wa-input name="entry[title]" value="<%= @entry.title %>" size="xs"></wa-input>
     </div>
 
     <div>
-      <%= form.submit %>
+      <div class="wa-cluster">
+        <wa-button appearance="filled" type="submit" variant="neutral" size="xs">Submit</wa-button>
+        <wa-button appearance="filled" type="reset" variant="neutral" size="xs">Nevermind</wa-button>
+      </div>
+      <%# form.submit %>
     </div>
   <% end %>
 <% end %>
